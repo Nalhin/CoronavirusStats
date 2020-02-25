@@ -1,17 +1,25 @@
-const fs = require("fs");
-const axios = require("axios");
-const cheerio = require("cherio");
+const axios = require('axios');
+const cheerio = require('cherio');
 const rowNames = [
-  "country",
-  "totalCases",
-  "newCases",
-  "totalDeaths",
-  "newDeaths",
-  "totalRecovered",
-  "seriousCritical",
-  "continent"
+  'country',
+  'totalCases',
+  'newCases',
+  'totalDeaths',
+  'newDeaths',
+  'totalRecovered',
+  'seriousCritical',
+  'continent',
 ];
-const siteUrl = "https://www.worldometers.info/coronavirus/";
+const siteUrl = 'https://www.worldometers.info/coronavirus/';
+
+const defaultData = {
+  totalCases: 0,
+  newCases: 0,
+  totalDeaths: 0,
+  newDeaths: 0,
+  totalRecovered: 0,
+  seriousCritical: 0,
+};
 
 async function downloadStats() {
   const fetchData = async () => {
@@ -20,20 +28,20 @@ async function downloadStats() {
   };
   const $ = await fetchData();
 
-  const statTable = $("#table3 tbody");
+  const statTable = $('#table3 tbody');
   const data = [];
 
   $(statTable)
-    .children("tr")
+    .children('tr')
     .each(function(_, row) {
       const output = {};
       $(row)
-        .children("td")
+        .children('td')
         .each(function(i) {
           output[rowNames[i]] = $(this)
             .text()
-            .replace("+", "")
-            .replace(",", "")
+            .replace('+', '')
+            .replace(',', '')
             .trim();
           if (i >= 1 && i < 7) {
             output[rowNames[i]] = Number(output[rowNames[i]]);
@@ -42,26 +50,7 @@ async function downloadStats() {
       data.push(output);
     });
 
-  fs.writeFile(
-    `${__dirname}/../../app/assets/data.json`,
-    JSON.stringify({
-      updateDate: new Date().toISOString(),
-      data
-    }),
-    "utf8",
-    function(err) {
-      console.log("JSON file has been saved.");
-    }
-  );
-
-  fs.writeFile(
-    `${__dirname}/../data/${new Date().toISOString()}.json`,
-    JSON.stringify(data),
-    "utf8",
-    function(err) {
-      console.log("JSON file has been saved.");
-    }
-  );
+  return { data, polishData: { ...defaultData, date: new Date().toISOString(),...data.find(row => row.country === 'Poland')} };
 }
 
 module.exports = downloadStats;

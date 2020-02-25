@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Navigation />
     <nuxt />
+    <Footer />
   </div>
 </template>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -16,6 +16,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background: #f8f8f8;
 }
 
 *,
@@ -26,9 +27,9 @@ html {
 }
 </style>
 <script>
-import Navigation from '../components/Navigation';
+import Footer from './Footer';
 
 export default {
-  components: { Navigation },
+  components: { Footer },
 };
 </script>

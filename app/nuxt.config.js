@@ -1,20 +1,25 @@
+const webpack = require('webpack');
+
 export default {
   mode: 'spa',
-  /*
-   ** Headers of the page
-   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Koronawirus w Polsce',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        hid: 'Koronawirus',
+        name: 'Koronawirus',
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -33,14 +38,17 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/moment',
   ],
+  moment: {
+    locales: ['pl'],
+  },
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt'
   ],
   /*
    ** Build configuration
@@ -49,6 +57,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
-}
+    extend(config, ctx) {},
+  },
+};

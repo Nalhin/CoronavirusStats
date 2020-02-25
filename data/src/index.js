@@ -1,15 +1,54 @@
 const downloadStats = require('./downloadStats');
 const { exec } = require('child_process');
+const fs = require('fs');
 
 const schedule = require('node-schedule');
 
-function handleUpdate() {
-  downloadStats();
-  console.log(`Stats downloaded at ${new Date()}`);
-  exec(`cd ${__dirname}/../../app && npm run generate`);
+const appPath = `${__dirname}/../../app/assets`;
+const dataPath = `${__dirname}/../data/`;
+const graphPath = `${appPath}/graph.json`;
+
+async function updateData() {
+  const { data, polishData } = await downloadStats();
+  console.log(data);
+  fs.writeFile(
+    `${appPath}/data.json`,
+    JSON.stringify(polishData),
+    'utf8',
+    () => {
+    },
+  );
+
+  fs.writeFile(
+    `${dataPath}${new Date().toISOString()}.json`,
+    JSON.stringify(data),
+    'utf8',
+    () => {
+    },
+  );
+
 }
 
-handleUpdate();
+async function updateGraph() {
+  const { polishData } = await downloadStats();
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(graphPath));
+  } catch {
+    data = [];
+  }
+  data.push(polishData);
+  fs.writeFileSync(
+    graphPath,
+    JSON.stringify(data),
+    JSON.stringify(data),
+    'utf8',
+    ()=>{}
+  );
+}
 
-schedule.scheduleJob('00 * * * *', handleUpdate);
+schedule.scheduleJob('00 * * * *', updateData);
 
+schedule.scheduleJob('* */6 * * *', updateGraph);
+
+updateGraph();
