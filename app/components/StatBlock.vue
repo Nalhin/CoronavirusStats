@@ -30,9 +30,9 @@ export default {
 
 .number-container {
   background: rgb(160, 174, 192);
-  margin: 8px auto;
+  margin: 10px auto;
   width: 6rem;
-  border-radius: 6px;
+  border-radius: 8px;
   position: relative;
   padding: 8px;
 }

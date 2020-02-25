@@ -3,21 +3,25 @@ const { exec } = require("child_process");
 const fs = require("fs");
 
 const schedule = require("node-schedule");
-
-const appPath = `${__dirname}/../../app/assets`;
+const appPath = `${__dirname}/../../app`;
+const appAssetsPath = `${appPath}/assets`;
 const dataPath = `${__dirname}/../data/`;
-const graphPath = `${appPath}/graph.json`;
+const graphPath = `${appAssetsPath}/graph.json`;
 
 async function updateData() {
   const { data, polishData } = await downloadStats();
-  console.log(data);
-  fs.writeFileSync(`${appPath}/data.json`, JSON.stringify(polishData), "utf8");
+  fs.writeFileSync(
+    `${appAssetsPath}/data.json`,
+    JSON.stringify(polishData),
+    "utf8"
+  );
 
-  fs.writeFile(
+  fs.writeFileSync(
     `${dataPath}${new Date().toISOString()}.json`,
     JSON.stringify(data),
     "utf8"
   );
+  exec(`cd ${appPath} && npm run generate`);
 }
 
 async function updateGraph() {
@@ -29,14 +33,12 @@ async function updateGraph() {
     data = [];
   }
   data.push(polishData);
-  fs.writeFileSync(
-    graphPath,
-    JSON.stringify(data),
-    JSON.stringify(data),
-    "utf8"
-  );
+  fs.writeFile(graphPath, JSON.stringify(data), "utf8", () => {});
 }
 
-schedule.scheduleJob("00 * * * *", updateData);
+schedule.scheduleJob("01 * * * *", updateData);
 
 schedule.scheduleJob("* */6 * * *", updateGraph);
+
+updateData();
+updateGraph();

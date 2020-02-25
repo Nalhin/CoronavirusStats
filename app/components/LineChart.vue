@@ -7,7 +7,7 @@ export default {
   extends: Line,
   data() {
     return {
-      datacollection: {
+      graphData: {
         datasets: [
           {
             label: 'Zachorowania',
@@ -61,7 +61,7 @@ export default {
     };
   },
   mounted() {
-    this.renderChart(this.datacollection, this.options);
+    this.renderChart(this.graphData, this.options);
   },
   methods: {
     getTotal() {

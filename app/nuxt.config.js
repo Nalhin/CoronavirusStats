@@ -10,7 +10,6 @@ export default {
       {
         hid: 'Koronawirus',
         name: 'Koronawirus',
-        content: process.env.npm_package_description || '',
       },
     ],
     link: [
@@ -47,9 +46,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://bootstrap-vue.js.org
-  ],
+  modules: [],
   /*
    ** Build configuration
    */
