@@ -39,6 +39,3 @@ async function updateGraph() {
 schedule.scheduleJob("01 * * * *", updateData);
 
 schedule.scheduleJob("* */6 * * *", updateGraph);
-
-updateData();
-updateGraph();
