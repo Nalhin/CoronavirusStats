@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 export default {
   mode: 'spa',
   head: {
@@ -20,40 +18,24 @@ export default {
       },
     ],
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
   css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: [],
-  /*
-   ** Nuxt.js dev-modules
-   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/moment',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-149072321-2',
+      },
+    ],
   ],
   moment: {
     locales: ['pl'],
   },
-  /*
-   ** Nuxt.js modules
-   */
   modules: [],
-  /*
-   ** Build configuration
-   */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {},
   },
 };

@@ -33,7 +33,7 @@ async function updateGraph() {
     data = [];
   }
   data.push(polishData);
-  fs.writeFile(graphPath, JSON.stringify(data), "utf8", () => {});
+  fs.writeFileSync(graphPath, JSON.stringify(data), "utf8");
 }
 
 schedule.scheduleJob("01 * * * *", updateData);

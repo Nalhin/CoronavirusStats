@@ -26,7 +26,7 @@ export default {
 
 <style scoped lang="scss">
 .title-subsection {
-  padding: 8px;
+  padding: 8px 0;
   > div {
     padding: 2px;
   }

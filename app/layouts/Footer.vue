@@ -1,21 +1,18 @@
 <template>
   <footer class="footer">
     <div>
-      Dane znajdujące się na stronie pochodza z
+      Dane znajdujące się na stronie pochodzą z
       <a href="https://www.worldometers.info/coronavirus/" target="_blank">
         https://www.worldometers.info/coronavirus/
       </a>
     </div>
     <span class="disclaimer">
-      Strona jest czysto informacyjna, nie odpowiadam za poprawność
-      jakichkolwiek danych na niej zawartych.
+      Strona jest czysto informacyjna, nie odpowiadam za poprawność danych na
+      niej zawartych.
     </span>
-    <div>
-      Kontakt -
-      <a href="mailto:contact@koronawirus.news">
-        contact@koronawirus.news
-      </a>
-    </div>
+    <a href="mailto:contact@koronawirus.news" class="contact">
+      contact@koronawirus.news
+    </a>
   </footer>
 </template>
 
@@ -35,5 +32,8 @@ export default {
 .disclaimer {
   padding-top: 8px;
   font-size: 12px;
+}
+.contact {
+  display: block;
 }
 </style>

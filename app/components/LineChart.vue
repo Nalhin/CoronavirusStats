@@ -1,6 +1,5 @@
 <script>
 import { Line } from 'vue-chartjs';
-import moment from 'moment';
 import graph from '../assets/graph.json';
 
 export default {
@@ -36,11 +35,6 @@ export default {
         },
         responsive: true,
         maintainAspectRatio: true,
-        title: {
-          display: true,
-          text: `Ostatnia aktualizacja ${this.getLatestDate()}`,
-          position: 'top',
-        },
         scales: {
           xAxes: [
             {
@@ -81,9 +75,6 @@ export default {
         y: element.totalRecovered,
         x: new Date(element.date),
       }));
-    },
-    getLatestDate() {
-      return moment(graph[graph.length - 1].date).format('DD.MM.YY HH:MM:ss');
     },
   },
 };

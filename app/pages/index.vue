@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import SpreadSection from '../components/SpreadSection';
+import SpreadSection from '../components/GraphSection';
 import SummarySection from '../components/SummarySection';
 
 export default {
@@ -61,23 +61,14 @@ export default {
   max-width: 90%;
 }
 
-.summary {
-  display: flex;
-  flex-direction: row;
-  > div {
-    margin: 8px;
-  }
-  @media only screen and (max-width: 768px) {
-    flex-direction: column;
-  }
-}
-
 .map-container {
+  margin-top: 2rem;
   width: 100%;
 }
 .map-iframe {
   margin-top: 8px;
   width: 100%;
+  max-width: 768px;
   min-height: 700px;
 }
 </style>

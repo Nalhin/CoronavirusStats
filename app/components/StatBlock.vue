@@ -1,5 +1,5 @@
 <template functional>
-  <div>
+  <div class="stat-block-container">
     <div class="number-container">
       <span class="number">{{ props.number }}</span>
       <div class="badge-container">
@@ -35,6 +35,9 @@ export default {
   border-radius: 8px;
   position: relative;
   padding: 8px;
+}
+.stat-block-container {
+  margin: 8px;
 }
 
 .badge-container {

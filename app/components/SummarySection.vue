@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="summary-container">
     <div class="page-title-container">
       <h2>
         Koronawirus w Polsce
@@ -10,7 +10,7 @@
     <div class="summary">
       <StatBlock
         :number="polandData.totalCases"
-        :description="'Potwierdzone'"
+        :description="'Zarażone'"
         :sub-description="'Osoby zarażone na terytorium Polski.'"
       >
         <template v-slot:badge>
@@ -32,7 +32,7 @@
       </StatBlock>
       <StatBlock
         :number="polandData.totalRecovered"
-        :description="'Wyleczeni'"
+        :description="'Wyleczene'"
         :sub-description="'Ilość osób wyleczonych z koronawirusa w Polsce.'"
       />
       <StatBlock
@@ -62,7 +62,26 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+.summary-container {
+  width: 100%;
+}
+
+.summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  & > div {
+    width: 20%;
+  }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
 .page-title-container {
   display: flex;
   flex-direction: row;
