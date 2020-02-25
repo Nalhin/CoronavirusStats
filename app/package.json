@@ -1,7 +1,6 @@
 {
-  "name": "coronavirusStats",
+  "name": "coronavirus-stats",
   "version": "1.0.0",
-  "description": "My supreme Nuxt.js project",
   "author": "nalhin",
   "private": true,
   "scripts": {
@@ -21,11 +20,10 @@
     }
   },
   "dependencies": {
-    "bootstrap": "^4.1.3",
-    "bootstrap-vue": "^2.0.0",
     "chart.js": "^2.9.3",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.23",
     "sass-loader": "^8.0.2",
     "vue-chartjs": "^3.5.0"
   },

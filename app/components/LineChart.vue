@@ -25,7 +25,6 @@ export default {
             label: 'Wyzdrowienia',
             data: this.getRecovered(),
             fill: false,
-
             borderColor: 'green',
           },
         ],
