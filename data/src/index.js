@@ -15,7 +15,6 @@ async function updateData() {
     JSON.stringify(polishData),
     "utf8"
   );
-
   fs.writeFileSync(
     `${dataPath}${new Date().toISOString()}.json`,
     JSON.stringify(data),
