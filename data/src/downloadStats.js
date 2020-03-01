@@ -47,9 +47,12 @@ async function downloadStats() {
             output[rowNames[i]] = Number(output[rowNames[i]]);
           }
         });
-      data.push(output);
+      if (output.country !== "Total:") {
+        data.push(output);
+      }
     });
 
+  console.log(data);
   return {
     data,
     polishData: {
