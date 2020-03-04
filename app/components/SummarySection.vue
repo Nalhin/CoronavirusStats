@@ -32,7 +32,7 @@
       </StatBlock>
       <StatBlock
         :number="polandData.totalRecovered"
-        :description="'Wyleczene'"
+        :description="'Wyleczone'"
         :sub-description="'Ilość osób wyleczonych z koronawirusa w Polsce.'"
       />
       <StatBlock
