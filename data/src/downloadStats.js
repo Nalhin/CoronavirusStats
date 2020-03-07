@@ -8,7 +8,8 @@ const rowNames = [
   "newDeaths",
   "activeCases",
   "totalRecovered",
-  "seriousCritical"
+  "seriousCritical",
+  "totalCasesPer1Mpop"
 ];
 const siteUrl = "https://www.worldometers.info/coronavirus/";
 
@@ -43,7 +44,7 @@ async function downloadStats() {
             .replace("+", "")
             .replace(",", "")
             .trim();
-          if (i >= 1 && i < 8) {
+          if (i >= 1 && i < 9) {
             output[rowNames[i]] = Number(output[rowNames[i]]);
           }
         });
@@ -52,7 +53,6 @@ async function downloadStats() {
       }
     });
 
-  console.log(data);
   return {
     data,
     polishData: {
