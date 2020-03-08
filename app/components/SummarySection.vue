@@ -55,7 +55,7 @@ export default {
   components: { UpdateInfo, StatBlock },
   data() {
     return {
-      updatedDate: moment(data.updateDate).format('ll HH:mm'),
+      updatedDate: moment(data.date).format('ll HH:mm'),
       polandData: data,
     };
   },
