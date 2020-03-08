@@ -17,9 +17,7 @@ export default {
   components: { UpdateInfo, LineChart },
   data() {
     return {
-      latestDate: moment(graph[graph.length - 1].date).format(
-        'DD.MM.YY HH:MM:ss',
-      ),
+      latestDate: moment(graph[graph.length - 1].date).format('ll HH:mm'),
     };
   },
 };
