@@ -41,7 +41,9 @@ export default {
               type: 'time',
               distribution: 'series',
               time: {
+                tooltipFormat: 'll HH:mm',
                 unit: 'day',
+                unitStepSize: 1,
               },
             },
           ],
