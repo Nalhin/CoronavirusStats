@@ -61,19 +61,19 @@ export default {
     getTotal() {
       return graph.map(element => ({
         y: element.totalCases,
-        x: new Date(element.date),
+        x: element.date,
       }));
     },
     getDeaths() {
       return graph.map(element => ({
         y: element.totalDeaths,
-        x: new Date(element.date),
+        x: element.date,
       }));
     },
     getRecovered() {
       return graph.map(element => ({
         y: element.totalRecovered,
-        x: new Date(element.date),
+        x: element.date,
       }));
     },
   },
