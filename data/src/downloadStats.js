@@ -6,8 +6,8 @@ const rowNames = [
   "newCases",
   "totalDeaths",
   "newDeaths",
-  "activeCases",
   "totalRecovered",
+  "activeCases",
   "seriousCritical",
   "totalCasesPer1Mpop"
 ];
