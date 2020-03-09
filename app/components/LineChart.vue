@@ -1,6 +1,6 @@
 <script>
 import { Line } from 'vue-chartjs';
-import { filterUniqueNumber } from '../utils/filterUniqueNumber';
+import { filterUniqueProperty } from '../utils/filterUniqueProperty';
 import graph from '../assets/graph.json';
 
 export default {
@@ -65,19 +65,19 @@ export default {
   },
   methods: {
     getTotal() {
-      return filterUniqueNumber(graph, 'totalCases').map(element => ({
+      return filterUniqueProperty(graph, 'totalCases').map(element => ({
         y: element.totalCases,
         x: element.date,
       }));
     },
     getDeaths() {
-      return filterUniqueNumber(graph, 'totalDeaths').map(element => ({
+      return filterUniqueProperty(graph, 'totalDeaths').map(element => ({
         y: element.totalDeaths,
         x: element.date,
       }));
     },
     getRecovered() {
-      return filterUniqueNumber(graph, 'totalRecovered').map(element => ({
+      return filterUniqueProperty(graph, 'totalRecovered').map(element => ({
         y: element.totalRecovered,
         x: element.date,
       }));

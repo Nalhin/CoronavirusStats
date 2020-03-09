@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="../assets/virus.svg" alt="virus" class="virus-image" />
+    <img src="~assets/virus.svg?data" alt="virus" class="virus-image" />
     <SummarySection />
     <SpreadSection />
     <div class="map-container">

@@ -34,7 +34,7 @@ export default {
   moment: {
     locales: ['pl'],
   },
-  modules: [],
+  modules: ['@nuxtjs/svg'],
   build: {
     extend(config, ctx) {},
   },

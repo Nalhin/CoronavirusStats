@@ -1,4 +1,4 @@
-export function filterUniqueNumber(a, propertyName) {
+export function filterUniqueProperty(a, propertyName) {
   return a.filter(function(item, pos, ary) {
     if (item[propertyName] === 0) {
       return ary[pos + 1] && ary[pos + 1][propertyName] !== 0;
