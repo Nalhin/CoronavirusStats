@@ -1,6 +1,6 @@
 <template>
   <div class="graph">
-    <h2>Szereg czasowy zachorowań na terytorium Polski</h2>
+    <h2>Wykres zachorowań na terytorium Polski</h2>
     <UpdateInfo :time="'6 godzin'" :updated-date="latestDate" />
     <line-chart class="chart-container" />
   </div>

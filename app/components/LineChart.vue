@@ -1,5 +1,6 @@
 <script>
 import { Line } from 'vue-chartjs';
+import { filterUniqueNumber } from '../utils/filterUniqueNumber';
 import graph from '../assets/graph.json';
 
 export default {
@@ -13,18 +14,21 @@ export default {
             data: this.getTotal(),
             fill: false,
             borderColor: 'orange',
+            spanGaps: true,
           },
           {
             label: 'Śmierci',
             data: this.getDeaths(),
             fill: false,
             borderColor: 'red',
+            spanGaps: true,
           },
           {
             label: 'Wyzdrowienia',
             data: this.getRecovered(),
             fill: false,
             borderColor: 'green',
+            spanGaps: true,
           },
         ],
       },
@@ -39,11 +43,11 @@ export default {
           xAxes: [
             {
               type: 'time',
-              distribution: 'series',
+              unitStepSize: 1,
               time: {
                 tooltipFormat: 'll HH:mm',
                 unit: 'day',
-                unitStepSize: 1,
+                stepSize: 1,
               },
             },
           ],
@@ -61,19 +65,19 @@ export default {
   },
   methods: {
     getTotal() {
-      return graph.map(element => ({
+      return filterUniqueNumber(graph, 'totalCases').map(element => ({
         y: element.totalCases,
         x: element.date,
       }));
     },
     getDeaths() {
-      return graph.map(element => ({
+      return filterUniqueNumber(graph, 'totalDeaths').map(element => ({
         y: element.totalDeaths,
         x: element.date,
       }));
     },
     getRecovered() {
-      return graph.map(element => ({
+      return filterUniqueNumber(graph, 'totalRecovered').map(element => ({
         y: element.totalRecovered,
         x: element.date,
       }));
