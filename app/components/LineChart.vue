@@ -17,7 +17,7 @@ export default {
             spanGaps: true,
           },
           {
-            label: 'Śmierci',
+            label: 'Zgony',
             data: this.getDeaths(),
             fill: false,
             borderColor: 'red',

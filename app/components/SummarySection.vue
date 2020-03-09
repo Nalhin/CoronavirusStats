@@ -21,8 +21,8 @@
       </StatBlock>
       <StatBlock
         :number="polandData.totalDeaths"
-        :description="'Śmierci'"
-        :sub-description="'Ilość śmierci na koronawirusa w Polsce.'"
+        :description="'Zgony'"
+        :sub-description="'Liczba zgonów na koronawirusa w Polsce.'"
       >
         <template v-slot:badge>
           <div v-if="polandData.newDeaths" class="badge badge--danger">
