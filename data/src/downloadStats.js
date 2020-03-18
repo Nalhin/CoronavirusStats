@@ -29,7 +29,7 @@ async function downloadStats() {
   };
   const $ = await fetchData();
 
-  const statTable = $("#main_table_countries tbody");
+  const statTable = $("#main_table_countries_today tbody");
   const data = [];
 
   $(statTable)
