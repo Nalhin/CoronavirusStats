@@ -31,7 +31,7 @@ export default {
 .number-container {
   background: rgb(160, 174, 192);
   margin: 10px auto;
-  width: 6rem;
+  width: 8rem;
   border-radius: 8px;
   position: relative;
   padding: 8px;
