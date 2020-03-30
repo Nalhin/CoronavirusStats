@@ -39,13 +39,15 @@ async function downloadStats() {
       $(row)
         .children("td")
         .each(function(i) {
-          output[rowNames[i]] = $(this)
-            .text()
-            .replace("+", "")
-            .replace(",", "")
-            .trim();
-          if (i >= 1 && i < 9) {
-            output[rowNames[i]] = Number(output[rowNames[i]]);
+          if (output[rowNames[i]]) {
+            output[rowNames[i]] = $(this)
+              .text()
+              .replace("+", "")
+              .replace(",", "")
+              .trim();
+            if (i >= 1 && i < 9) {
+              output[rowNames[i]] = Number(output[rowNames[i]]);
+            }
           }
         });
       if (output.country !== "Total:") {
