@@ -10,6 +10,7 @@ const graphPath = `${appAssetsPath}/graph.json`;
 
 async function updateData() {
   const { data, polishData } = await downloadStats();
+  console.log(data, polishData);
   fs.writeFileSync(
     `${appAssetsPath}/data.json`,
     JSON.stringify(polishData),

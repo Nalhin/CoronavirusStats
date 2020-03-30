@@ -29,7 +29,7 @@ async function downloadStats() {
   };
   const $ = await fetchData();
 
-  const statTable = $("#main_table_countries_today tbody");
+  const statTable = $("#main_table_countries_today tbody").get(0);
   const data = [];
 
   $(statTable)
@@ -39,7 +39,7 @@ async function downloadStats() {
       $(row)
         .children("td")
         .each(function(i) {
-          if (output[rowNames[i]]) {
+          if ([rowNames[i]]) {
             output[rowNames[i]] = $(this)
               .text()
               .replace("+", "")
