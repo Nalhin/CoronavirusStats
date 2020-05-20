@@ -32,6 +32,8 @@ async function downloadStats() {
   const statTable = $("#main_table_countries_today tbody").get(0);
   const data = [];
 
+  const offset = 1;
+
   $(statTable)
     .children("tr")
     .each(function(_, row) {
@@ -39,7 +41,8 @@ async function downloadStats() {
       $(row)
         .children("td")
         .each(function(i) {
-          if ([rowNames[i]]) {
+          i = i - offset;
+          if (i >= 0 && i < rowNames.length - 1) {
             output[rowNames[i]] = $(this)
               .text()
               .replace("+", "")
@@ -54,7 +57,6 @@ async function downloadStats() {
         data.push(output);
       }
     });
-
   return {
     data,
     polishData: {
